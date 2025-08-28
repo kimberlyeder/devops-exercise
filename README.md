@@ -1,7 +1,5 @@
 # Hello FastAPI — Docker — Helm — ArgoCD (Minimal Starter)
 
-This repository is the quickest path to complete your task:
-
 - A tiny FastAPI app with `/` and `/healthz`
 - Dockerfile to build an image
 - Helm chart to deploy it

@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/<youruser>/<yourrepo>.git"
+    targetRevision: HEAD
+    path: chart/hello-app
+    helm:
+      values: |
+        image:
+          repository: <your-docker-user>/hello-app
+          tag: v1
+        env:
+          APP_NAME: "hello-app from ArgoCD"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: hello-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: <your-docker-user>/hello-app
+  tag: v1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: false
+  className: ""
+  hosts:
+    - host: hello.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: []
+
+env:
+  APP_NAME: "hello-app"

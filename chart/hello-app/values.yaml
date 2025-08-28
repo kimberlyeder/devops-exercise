@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: <your-docker-user>/hello-app
-  tag: v1
+  repository: kimberlyeder/hello-app
+  tag: v2
   pullPolicy: IfNotPresent
 
 service:
